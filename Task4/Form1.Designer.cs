@@ -1,24 +1,24 @@
-﻿namespace lab1
+﻿namespace Task4
 {
-	partial class Form1
-	{
-		/// <summary>
-		///  Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		///  Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
         #region Windows Form Designer generated code
 
@@ -35,16 +35,16 @@
             // listBoxResults
             // 
             listBoxResults.FormattingEnabled = true;
-            listBoxResults.Location = new Point(346, 57);
+            listBoxResults.Location = new Point(330, 65);
             listBoxResults.Name = "listBoxResults";
-            listBoxResults.Size = new Size(349, 304);
+            listBoxResults.Size = new Size(370, 304);
             listBoxResults.TabIndex = 0;
             // 
             // btnSort
             // 
-            btnSort.Location = new Point(62, 57);
+            btnSort.Location = new Point(80, 65);
             btnSort.Name = "btnSort";
-            btnSort.Size = new Size(256, 48);
+            btnSort.Size = new Size(222, 61);
             btnSort.TabIndex = 1;
             btnSort.Text = "Sort";
             btnSort.UseVisualStyleBackColor = true;
