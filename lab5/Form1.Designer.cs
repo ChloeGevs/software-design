@@ -1,6 +1,6 @@
 ﻿namespace lab5
 {
-    partial class Form1
+    partial class BookStore
     {
         /// <summary>
         ///  Required designer variable.
@@ -41,7 +41,7 @@
             // listBoxBooks
             // 
             listBoxBooks.FormattingEnabled = true;
-            listBoxBooks.Location = new Point(320, 44);
+            listBoxBooks.Location = new Point(319, 24);
             listBoxBooks.Name = "listBoxBooks";
             listBoxBooks.Size = new Size(441, 324);
             listBoxBooks.TabIndex = 0;
@@ -56,12 +56,13 @@
             // 
             // btnUpdateBook
             // 
+            btnUpdateBook.BackColor = Color.PaleGoldenrod;
             btnUpdateBook.Location = new Point(51, 280);
             btnUpdateBook.Name = "btnUpdateBook";
             btnUpdateBook.Size = new Size(222, 31);
             btnUpdateBook.TabIndex = 2;
             btnUpdateBook.Text = "Update";
-            btnUpdateBook.UseVisualStyleBackColor = true;
+            btnUpdateBook.UseVisualStyleBackColor = false;
             btnUpdateBook.Click += btnUpdateBook_Click;
             // 
             // txtBookTitle
@@ -82,38 +83,44 @@
             // 
             // btnAddBook
             // 
+            btnAddBook.BackColor = Color.CornflowerBlue;
+            btnAddBook.BackgroundImageLayout = ImageLayout.Zoom;
+            btnAddBook.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddBook.Location = new Point(51, 243);
             btnAddBook.Name = "btnAddBook";
             btnAddBook.Size = new Size(222, 31);
             btnAddBook.TabIndex = 5;
             btnAddBook.Text = "Add Book";
-            btnAddBook.UseVisualStyleBackColor = true;
+            btnAddBook.UseVisualStyleBackColor = false;
             btnAddBook.Click += btnAddBook_Click;
             // 
             // btnShowBooks
             // 
-            btnShowBooks.Location = new Point(427, 384);
+            btnShowBooks.BackColor = Color.CornflowerBlue;
+            btnShowBooks.Location = new Point(427, 368);
             btnShowBooks.Name = "btnShowBooks";
-            btnShowBooks.Size = new Size(222, 31);
+            btnShowBooks.Size = new Size(222, 47);
             btnShowBooks.TabIndex = 6;
             btnShowBooks.Text = "Show Books";
-            btnShowBooks.UseVisualStyleBackColor = true;
+            btnShowBooks.UseVisualStyleBackColor = false;
             btnShowBooks.Click += btnShowBooks_Click;
             // 
             // btnDeleteBook
             // 
+            btnDeleteBook.BackColor = Color.Firebrick;
             btnDeleteBook.Location = new Point(51, 317);
             btnDeleteBook.Name = "btnDeleteBook";
             btnDeleteBook.Size = new Size(222, 31);
             btnDeleteBook.TabIndex = 7;
             btnDeleteBook.Text = "Delete";
-            btnDeleteBook.UseVisualStyleBackColor = true;
+            btnDeleteBook.UseVisualStyleBackColor = false;
             btnDeleteBook.Click += btnDeleteBook_Click;
             // 
-            // Form1
+            // BookStore
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(btnDeleteBook);
             Controls.Add(btnShowBooks);
@@ -123,8 +130,9 @@
             Controls.Add(btnUpdateBook);
             Controls.Add(txtBookId);
             Controls.Add(listBoxBooks);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "BookStore";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Book Store";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -1,13 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using static lab5.Form1;
+using static lab5.BookStore;
 
-public class BookstoreContext : DbContext
+namespace lab5
 {
-    public DbSet<Book> Books { get; set; }
-    public DbSet<Author> Authors { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public class BookstoreContext : DbContext
     {
-        optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=BookstoreDB;Trusted_Connection=True;");
+        // DbSet properties map your C# classes to database tables
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            // Configures the connection to your Local MS SQL database
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=BookstoreDB;Trusted_Connection=True;");
+        }
     }
 }

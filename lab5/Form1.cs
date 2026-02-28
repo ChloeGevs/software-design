@@ -6,14 +6,15 @@ using System.Windows.Forms;
 
 namespace lab5
 {
-    public partial class Form1 : Form
+    public partial class BookStore : Form
     {
-        public Form1()
+        public BookStore()
         {
             InitializeComponent();
+            // Wire the SelectedIndexChanged event
+            listBoxBooks.SelectedIndexChanged += listBoxBooks_SelectedIndexChanged;
         }
 
-        // Define Entity Models inside the namespace or class
         public class Author
         {
             public int AuthorID { get; set; }
@@ -29,7 +30,6 @@ namespace lab5
             public virtual Author Author { get; set; }
         }
 
-        // Helper method to refresh the display
         private void RefreshData()
         {
             using (var context = new BookstoreContext())
@@ -38,12 +38,44 @@ namespace lab5
                 listBoxBooks.Items.Clear();
                 foreach (var b in books)
                 {
+                    // Storing the ID in the string for easy parsing later
                     listBoxBooks.Items.Add($"ID: {b.BookID} - {b.Title} by {b.Author.Name}");
                 }
             }
         }
 
-        // Task 5: Add a New Author and Book
+        // Automatically populate textboxes when a book is clicked in the ListBox
+        private void listBoxBooks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxBooks.SelectedItem == null) return;
+
+            string selectedItem = listBoxBooks.SelectedItem.ToString();
+            try
+            {
+                // Parse the ID from the string "ID: [id] - [Title] by [Author]"
+                int idStart = selectedItem.IndexOf("ID: ") + 4;
+                int idEnd = selectedItem.IndexOf(" - ");
+                string idString = selectedItem.Substring(idStart, idEnd - idStart);
+
+                using (var context = new BookstoreContext())
+                {
+                    int bookId = int.Parse(idString);
+                    var book = context.Books.Include(b => b.Author).FirstOrDefault(b => b.BookID == bookId);
+
+                    if (book != null)
+                    {
+                        txtBookId.Text = book.BookID.ToString();
+                        txtBookTitle.Text = book.Title;
+                        txtAuthorName.Text = book.Author.Name;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error selecting book: " + ex.Message);
+            }
+        }
+
         private void btnAddBook_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtAuthorName.Text) || string.IsNullOrWhiteSpace(txtBookTitle.Text))
@@ -62,16 +94,10 @@ namespace lab5
                 context.SaveChanges();
                 MessageBox.Show("Saved successfully!");
             }
+            ClearFields();
             RefreshData();
         }
 
-        // Task 5: Display All Books
-        private void btnShowBooks_Click(object sender, EventArgs e)
-        {
-            RefreshData();
-        }
-
-        // Task 6: Update Book and Author Information
         private void btnUpdateBook_Click(object sender, EventArgs e)
         {
             if (int.TryParse(txtBookId.Text, out int bookId))
@@ -85,21 +111,13 @@ namespace lab5
                         book.Author.Name = txtAuthorName.Text;
                         context.SaveChanges();
                         MessageBox.Show("Updated successfully!");
+                        ClearFields();
                         RefreshData();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Book ID not found.");
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Enter a valid numeric Book ID.");
-            }
         }
 
-        // Task 7: Student Challenge - Delete a Book
         private void btnDeleteBook_Click(object sender, EventArgs e)
         {
             if (int.TryParse(txtBookId.Text, out int bookId))
@@ -115,11 +133,24 @@ namespace lab5
                             context.Books.Remove(book);
                             context.SaveChanges();
                             MessageBox.Show("Deleted successfully!");
+                            ClearFields();
                             RefreshData();
                         }
                     }
                 }
             }
+        }
+
+        private void ClearFields()
+        {
+            txtBookId.Clear();
+            txtBookTitle.Clear();
+            txtAuthorName.Clear();
+        }
+
+        private void btnShowBooks_Click(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }
