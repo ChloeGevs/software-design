@@ -20,20 +20,124 @@
 			base.Dispose(disposing);
 		}
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		///  Required method for Designer support - do not modify
-		///  the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
-			this.components = new System.ComponentModel.Container();
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Text = "Form1";
-		}
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            listBoxBooks = new ListBox();
+            txtBookId = new TextBox();
+            btnUpdateBook = new Button();
+            txtBookTitle = new TextBox();
+            txtAuthorName = new TextBox();
+            btnAddBook = new Button();
+            btnShowBooks = new Button();
+            btnDeleteBook = new Button();
+            SuspendLayout();
+            // 
+            // listBoxBooks
+            // 
+            listBoxBooks.FormattingEnabled = true;
+            listBoxBooks.Location = new Point(320, 44);
+            listBoxBooks.Name = "listBoxBooks";
+            listBoxBooks.Size = new Size(441, 324);
+            listBoxBooks.TabIndex = 0;
+            // 
+            // txtBookId
+            // 
+            txtBookId.Location = new Point(51, 44);
+            txtBookId.Name = "txtBookId";
+            txtBookId.PlaceholderText = "Book ID";
+            txtBookId.Size = new Size(222, 27);
+            txtBookId.TabIndex = 1;
+            // 
+            // btnUpdateBook
+            // 
+            btnUpdateBook.Location = new Point(51, 280);
+            btnUpdateBook.Name = "btnUpdateBook";
+            btnUpdateBook.Size = new Size(222, 31);
+            btnUpdateBook.TabIndex = 2;
+            btnUpdateBook.Text = "Update";
+            btnUpdateBook.UseVisualStyleBackColor = true;
+            btnUpdateBook.Click += btnUpdateBook_Click;
+            // 
+            // txtBookTitle
+            // 
+            txtBookTitle.Location = new Point(51, 118);
+            txtBookTitle.Name = "txtBookTitle";
+            txtBookTitle.PlaceholderText = "Book Title";
+            txtBookTitle.Size = new Size(222, 27);
+            txtBookTitle.TabIndex = 3;
+            // 
+            // txtAuthorName
+            // 
+            txtAuthorName.Location = new Point(51, 183);
+            txtAuthorName.Name = "txtAuthorName";
+            txtAuthorName.PlaceholderText = "Author Name";
+            txtAuthorName.Size = new Size(222, 27);
+            txtAuthorName.TabIndex = 4;
+            // 
+            // btnAddBook
+            // 
+            btnAddBook.Location = new Point(51, 243);
+            btnAddBook.Name = "btnAddBook";
+            btnAddBook.Size = new Size(222, 31);
+            btnAddBook.TabIndex = 5;
+            btnAddBook.Text = "Add Book";
+            btnAddBook.UseVisualStyleBackColor = true;
+            btnAddBook.Click += btnAddBook_Click;
+            // 
+            // btnShowBooks
+            // 
+            btnShowBooks.Location = new Point(427, 384);
+            btnShowBooks.Name = "btnShowBooks";
+            btnShowBooks.Size = new Size(222, 31);
+            btnShowBooks.TabIndex = 6;
+            btnShowBooks.Text = "Show Books";
+            btnShowBooks.UseVisualStyleBackColor = true;
+            btnShowBooks.Click += btnShowBooks_Click_1;
+            // 
+            // btnDeleteBook
+            // 
+            btnDeleteBook.Location = new Point(51, 317);
+            btnDeleteBook.Name = "btnDeleteBook";
+            btnDeleteBook.Size = new Size(222, 31);
+            btnDeleteBook.TabIndex = 7;
+            btnDeleteBook.Text = "Delete";
+            btnDeleteBook.UseVisualStyleBackColor = true;
+            btnDeleteBook.Click += btnDeleteBook_Click;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnDeleteBook);
+            Controls.Add(btnShowBooks);
+            Controls.Add(btnAddBook);
+            Controls.Add(txtAuthorName);
+            Controls.Add(txtBookTitle);
+            Controls.Add(btnUpdateBook);
+            Controls.Add(txtBookId);
+            Controls.Add(listBoxBooks);
+            Name = "Form1";
+            Text = "Form1";
+            ResumeLayout(false);
+            PerformLayout();
+        }
 
-		#endregion
-	}
+        #endregion
+
+        private ListBox listBoxBooks;
+        private TextBox txtBookId;
+        private Button btnUpdateBook;
+        private TextBox txtBookTitle;
+        private TextBox txtAuthorName;
+        private Button btnAddBook;
+        private Button btnShowBooks;
+        private Button btnDeleteBook;
+    }
 }
